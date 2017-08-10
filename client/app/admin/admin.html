@@ -1,0 +1,80 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container" ng-init="init()">
+	
+	<form>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<div class="input-group">
+					      <input type="text" class="form-control" ng-model="searchInput" id="exampleInputAmount" placeholder="Search" tooltip="Search by first name, last name, email or phone number."  tooltip-trigger="focus">
+					      <div class="input-group-addon"><span class="fa fa-search"></span></div>
+				    </div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="form-group">
+					<div class="input-group" tooltip="dd/mm/yyyy">
+						<input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="fromDate" is-open="opened['fromDate']" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-click="openDatePicker($event, 'fromDate')" />
+						<div class="input-group-addon" ng-click="openDatePicker($event, 'fromDate')">
+							<span class="fa fa-calendar"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="form-group">
+					<div class="input-group" tooltip="dd/mm/yyyy">
+						<input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="toDate" is-open="opened['toDate']" min-date="minDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-click="openDatePicker($event, 'toDate')"/>
+						<div class="input-group-addon" style="border-left: 0;" ng-click="openDatePicker($event, 'toDate')">
+							<span class="fa fa-calendar"></span>
+						</div>
+						<div class="input-group-addon" ng-click="clearDate()">
+							<span class="fa fa-remove"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="download-group">
+					<button type="button" ng-csv="downloadResults()" csv-header="csvHeaders()" filename="submissions_{{ getTimestamp() }}.csv" class="btn btn-primary" tooltip="Only downloads entries marked as not downloaded."><span class="fa fa-download"></span> Download</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div class="submission-table">
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th class="checkbox-column"><input type="checkbox" ng-model="toggleAll" ng-click="checkboxToggle()"></th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Date Submitted</th>
+				<th class="download-column"><span class="fa fa-download"></span></th>
+				<th class="hide-delete"></th>
+			</tr>
+			<tr ng-repeat="submission in submissionsList | filterSubmissions:searchInput:fromDate:toDate | orderBy:'dateCreated':true as filteredList">
+				<td class="checkbox-column"><input type="checkbox" ng-click="toggle(submission)" ng-checked="submission.checkbox"></td>
+				<td>{{submission.firstName}} {{submission.surname}}</td>
+				<td>{{submission.email}}</td>
+				<td>{{submission.phone}}</td>
+				<td>{{formatDate(submission.dateCreated)}}</td>
+				<td class="download-column"><span class="fa fa-check-circle-o" ng-if="submission.downloaded"></span></td>
+				<td class="text-right hide-delete">
+					<a class="btn btn-sm btn-danger" ng-click="deleteSubmission(submission._id)" width="100%"><span class="fa fa-trash"></span></a>
+				</td>
+			</tr>
+		</table>
+		<div ng-if="!filteredList.length" class="submission-table-empty">
+			There are no results visible.
+		</div>
+	</div>
+
+<!-- 	<form ng-submit="createSubmission()">
+		<input type="text" ng-model="createForm.firstName" placeholder="First Name">
+		<input type="text" ng-model="createForm.lastName" placeholder="Last Name">
+
+		<button class="btn btn-success" type="submit">Submit</button>
+	</form> -->
+</div>

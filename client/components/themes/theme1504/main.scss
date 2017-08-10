@@ -1,0 +1,1042 @@
+$screen-xs: 767px;
+$screen-sm: 769px;
+
+@font-face {
+    font-family: 'aachen_boldregular';
+    src: url('/assets/fonts/aachen_bold_plain-webfont.eot');
+    src: url('/assets/fonts/aachen_bold_plain-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/aachen_bold_plain-webfont.woff2') format('woff2'),
+         url('/assets/fonts/aachen_bold_plain-webfont.woff') format('woff'),
+         url('/assets/fonts/aachen_bold_plain-webfont.ttf') format('truetype'),
+         url('/assets/fonts/aachen_bold_plain-webfont.svg#aachen_boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-size: 12px;
+	// overflow: hidden;
+	background: #fff;
+	font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+}
+
+.ie-fixMinHeight {
+    display: flex;
+}
+
+.show-on-mobile {
+    display: none;
+
+    @media all and (max-width: $screen-sm){
+        display: block;
+    }
+}
+
+.hide-on-mobile {
+    display: block;
+
+    @media all and (max-width: $screen-sm){
+        display: none;
+    }
+}
+
+.desktop-view-image {
+	display: none;
+}
+@media all and (min-width: $screen-sm){
+	#header {
+		background: #ffcc00 url(/assets/images/background.jpg) no-repeat center center;
+		background-size: cover;
+		padding-top: 300px;
+
+		> img {
+			display: none;
+		}
+	}
+}
+
+.competition-body {
+	width: 100%;
+	// min-width: $screen-sm;
+	height: 100%;
+	background: #ffcc00;
+
+	@media all and (min-width: $screen-sm){
+		background: #ffcc00 fixed url(/assets/images/background.jpg) no-repeat 500px center;
+		background-size: cover;
+	}
+}
+
+.competition-wrapper {
+	background: #ffcc00;
+
+	@media all and (min-width: $screen-sm){
+		// margin: 0;
+		width: 100%;
+
+		img.desktop-view-image {
+			display: block !important;
+		}
+
+		.desktop-view {
+			max-width: $screen-sm;
+			margin: 0 auto;
+			position: relative;
+		}
+	}
+}
+
+.theme1504 {
+	background: #ffcc00;
+
+	// Ovveride
+	select.form-control {
+		-webkit-appearance: none;
+		color: #A0A0A0;
+	}
+
+	.header-intro {
+		background: #e4e2e3;
+		padding: 20px 35px 12px;
+	}
+
+    #header {
+        @media all and (max-width: $screen-sm){
+            overflow: hidden;
+        }
+    }
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 0;
+		font-family: 'aachen_boldregular', 'arial black', arial;
+	}
+
+	h1 {
+		font-size: 25px;
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	h3 {
+		font-size: 14px;
+	}
+
+	h4 {
+		font-size: 12px;
+		margin: 5px 0 0;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+	}
+
+	.form-group {
+		margin-bottom: $padding-base-horizontal;
+	}
+
+	.form {
+		background: #ffcc00;
+		padding: 15px 35px;
+	}
+
+	.form {
+		position: relative;
+
+		select, input, input[type=text], input[type=date], input[type=tel], input[type=email] {
+			padding: 4px $padding-base-horizontal;
+			border: none;
+			box-shadow: 0px 1px 1px #666;
+			border-radius: 0;
+			font-size: 14px;
+			height: 35px;
+		}
+
+		input[type=date] {
+			padding: 0 $padding-base-horizontal;
+			height: 35px;
+		}
+
+		.divider-text {
+			margin-bottom: 10px;
+		}
+
+		.normal-text {
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-weight: normal;
+		}
+
+		.small-text {
+			font-size: 10px;
+			display: block;
+		}
+
+		.checkbox {
+			margin: 8px 0 15px;
+
+			> .btn {
+				border-radius: 0;
+				border: none;
+				box-shadow: 0px 1px 1px #666;
+			}
+
+			> label {
+				padding-left: 10px;
+			}
+		}
+
+		.checkboxes {
+			padding: 0 15px;
+
+            @media all and (min-width: $screen-sm){
+                padding: 0;
+            }
+
+            @media all and (max-width: $screen-sm){
+                > .col-xs-12, > .col-xs-6 {
+    				padding-left: 0;
+    			}
+            }
+
+			input[type=text] {
+				position: relative;
+                top: -2px;
+			}
+		}
+
+		.acceptance {
+			padding: 0 15px;
+			margin-top: 5px;
+
+			> .col-xs-2, > .col-xs-3, > .col-xs-4, > .col-xs-12 {
+				padding: 0;
+			}
+
+			a {
+				color: #3fb5e5;
+				font-weight: bold;
+				text-transform: underline;
+			}
+
+			.checkbox {
+				margin: 0 0 10px;
+				padding-left: 20px;
+				position: relative;
+
+				> .btn {
+					position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translate(0,-50%);
+				}
+			}
+		}
+
+		.submit {
+			background: #2b2b2d url(/assets/images/btn-bg.gif) no-repeat right center;
+			border: none;
+			color: #fff;
+			padding: 10px 0px 10px 10px;
+			cursor: pointer;
+            margin-top: 5px;
+            width: 100%;
+            display: block;
+            text-align: left;
+		}
+
+		.permit {
+			text-transform: uppercase;
+			position: absolute;
+			bottom: 20px;
+			right: 15px;
+			font-weight: bold;
+			font-size: 10px;
+		}
+	}
+}
+
+.modal-dialog {
+	@media all and (min-width: $screen-sm){
+		width: 530px;
+
+		&.modal-lg {
+			width: 630px;
+		}
+	}
+
+
+}
+
+.modal-content {
+	background: #ffcc00;
+	border-radius: 0;
+	padding: 0px 20px 20px;
+
+	@media all and (max-width: $screen-sm){
+		padding: 0 10px 20px;
+	}
+
+	.modal-title {
+		font-size: 66px;
+		font-family: 'aachen_boldregular', 'arial black', arial;
+		letter-spacing: -2px;
+		color: #000;
+		text-transform: uppercase;
+		line-height: 100%;
+
+		@media all and (max-width: $screen-sm){
+			font-size: 45px;
+		}
+
+		> span {
+			color: #fff;
+		}
+	}
+
+	.modal-header {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	.modal-body {
+		color: #000;
+		font-size: 26px;
+		padding: 0 15px;
+
+		> h4 {
+			font-size: 40px;
+			text-transform: uppercase;
+			font-family: 'aachen_boldregular', 'arial black', arial;
+
+			@media all and (max-width: $screen-sm){
+				font-size: 34px;
+			}
+
+		}
+
+		> h5 {
+			font-family: 'aachen_boldregular', 'arial black', arial;
+			font-size: 22px;
+			margin-top: 20px;
+
+			> a {
+				color: #000;
+				text-transform: none;
+			}
+		}
+
+		span {
+			font-size: 30px;
+			text-transform: uppercase;
+			font-family: 'aachen_boldregular', 'arial black', arial;
+
+			> .white {
+				color: #fff;
+			}
+		}
+
+		.arial-text {
+			font-family: arial;
+			font-size: 20px;
+		}
+	}
+
+	.modal-close {
+		position: absolute;
+		top: -10px;
+		right: -10px;
+
+		> .btn-close {
+			background: #fff;
+			color: #000;
+			border-radius: 50%;
+		}
+	}
+
+	.termsScroller {
+		height: 500px;
+		overflow: scroll;
+		background: #fff;
+		padding: 0 20px;
+		font-size: 12px;
+		border-top: 20px solid #fff;
+		border-bottom: 20px solid #fff;
+		margin: 20px 0;
+
+		> h5 {
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		> ol {
+			padding-left: 25px;
+
+			> li {
+				padding-left: 15px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+// Banner section
+.banners {
+    background: #E3E1E0;
+    padding: 15px 35px;
+
+	@media all and (max-width: $screen-sm){
+		h2 {
+            text-align: center;
+        }
+	}
+
+    img {
+        width: 100%;
+        box-shadow: 0px 1px 1px #666 !important;
+    }
+
+    .flex-item:first-child {
+        margin-right: 20px;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+
+    @media all and (max-width: $screen-sm){
+        display: block;
+
+        img {
+            width: 100%;
+        }
+
+        > .flex-item {
+            margin: 0 0 20px;
+        }
+
+        .flex-item:first-child {
+            margin-right: 0;
+            text-align: center;
+
+            img {
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+// STA Widget
+.widget {
+    background: #40B4E1 url(/assets/images/widget-bg.jpg) repeat-x 0 0;
+    padding: 0px 35px 22px;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-searchTabs li {
+    background: none !important;
+    margin-bottom: 20px !important;
+    padding: 10px 0 !important;
+
+    > a {
+        font-family: 'aachen_boldregular', 'arial black', arial !important;
+        font-size: 22px !important;
+        color: black !important;
+        border-left: 1px solid black !important;
+        padding: 5px 10px !important;
+    }
+
+    &:first-child a {
+        border-left: none !important;
+        padding-left: 0 !important;
+    }
+
+    &.sta-selected a {
+        font-weight: normal !important;
+    }
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-where.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-where.sta-contain {
+    width: 33.3333% !important;
+    padding-right: 20px !important;
+    border-right: 2px solid #fff;
+    min-height: 215px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-numbers.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-when.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-when.sta-contain {
+    padding: 0 20px !important;
+    border-right: 2px solid #fff;
+    min-height: 215px;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-numbers.sta-contain {
+    padding-right: 0 !important;
+    border-right: none !important;
+    border-left: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-standardSearch {
+    background: none !important;
+    padding: 0 !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-where p span.sta-open, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_insurance .sta-contain .sta-field-icon, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-contain .sta-field-icon {
+    display: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-where input {
+    margin-left: 0 !important;
+    padding: 6px 10px !important;
+}
+
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-sw-date input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-sw-date input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours input.sta-tour-search-text {
+    margin-left: 0 !important;
+    margin-right: -35px !important;
+    padding: 6px 40px 6px 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-where input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-sw-date input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-sw-date input {
+    margin-bottom: 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-half, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-sw-date .sta-half, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-half, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-sw-date .sta-half {
+    float: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-where.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-where.sta-contain {
+    width: 33.3333%;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-numbers.sta-contain {
+    clear: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-searchTabs li:last-child {
+    display: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-numbers.sta-contain {
+    p:first-child, p:last-child {
+        display: none !important;
+    }
+
+    p:nth-child(2) {
+        padding-left: 0;
+    }
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-details {
+    position: absolute !important;
+    top: 144px !important;
+    width: 33.3333%;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-flex.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-flex.sta-contain {
+    left: 33.3333% !important;
+    margin-left: 20px;
+    top: 144px !important;
+    border-right: 0 !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .clicktripz label, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-details label {
+    float: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-sw-flights-type .sta-btn-primary {
+    background: none !important;
+    border: none !important;
+    padding-left: 0 !important;
+
+    &:before {
+        content: '';
+        float:left;
+        margin-right: 5px !important;
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        box-shadow: 0px 1px 1px #666 !important;
+    }
+    &.sta-active {
+        &:before {
+            content: "\e013";
+            font-family: 'Glyphicons Halflings';
+            color: black;
+        }
+    }
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-flex.sta-contain .sta-contain label, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-contain.sta-isAirBnB label {
+    & .sta-checkbox-mark {
+        height: 20px !important;
+        width: 25px !important;
+        background: none !important;
+        border: none !important;
+        margin-right: 0 !important;
+        vertical-align: bottom !important;
+    }
+
+    & .sta-checkbox-mark:before {
+        content: '';
+        float:left;
+        margin-right: 5px !important;
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        box-shadow: 0px 1px 1px #666 !important;
+    }
+
+    & input[type="checkbox"]:checked + .sta-checkbox-mark:before {
+        content: "\e013";
+        font-family: 'Glyphicons Halflings';
+        color: black;
+    }
+
+
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-advSearch {
+    display: none;
+}
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-travellers-note {
+    display: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-submit.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-submit.sta-contain {
+    position: absolute !important;
+    top: 74px !important;
+    right: 0 !important;
+    width: 33.3333% !important;
+    padding: 0 5px 0 20px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-when.sta-contain .sta-calendar-icon {
+    background-color: #249bca !important;
+    float: right !important;
+    width: 35px !important;
+    height: 35px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-custom-select:after {
+    content: "\e134" !important;
+    border-left: none !important;
+    font-family: 'Glyphicons Halflings';
+    color: #b5b5b5;
+    background: none !important;
+    font-size: 18px;
+    top: 5px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-sw-tours-where input[type=text], .sta-searchWrapper_mobile .sta-qbtb_2 .sta-custom-select select.sta-searchWrapper_mobile .sta-qbtb_2 .sta-contain.sta-destination .sta-tour-search-text, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-where input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-custom-select select, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-sw-date input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-sw-date input, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours input.sta-tour-search-text {
+    padding: 4px $padding-base-horizontal !important;
+    border: none;
+    box-shadow: 0px 1px 1px #666 !important;
+    border-radius: 0 !important;
+    font-size: 14px !important;
+    height: 35px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-contain.sta-destination .sta-tour-search-text {
+    height: 42px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-sw-tours-where input[type=text], .sta-searchWrapper_mobile .sta-qbtb_2 .sta-custom-select select, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-where .sta-where-wrap, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-when .sta-when-wrap, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-numbers .sta-numbers-wrap, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-room {
+    box-shadow: 0px 1px 1px #666 !important;
+    border-radius: 0 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-sw-tours-where {
+    margin-bottom: 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_flights .sta-sw-flights-type .sta-btn-label-multicity, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_holidays .sta-sw-flights-type .sta-btn-label-multicity {
+    display: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-error .sta-sw-row-title:before, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-error label.sta-withError:before {
+    display: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-error .sta-calendar-icon, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-error .sta-field-icon, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-error span.sta-open {
+    border: none !important;
+}
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-error input {
+    background: #fff !important;
+    border: none !important;
+    // color: #d9534f !important;
+    border-left: 2px solid #d9534f !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-error input[placeholder] {
+   // color: #fff !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-numbers.sta-contain.sta-error select {
+    border: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-numbers.sta-contain.sta-error .sta-custom-select:before {
+    background: #fff !important;
+    border-left: 2px solid #d9534f;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-custom-select select:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input.sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input.sta-flight_arrive_location:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input.sta-flight_depart_location:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input.sta-hotel_destination:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input.sta-tour-search-text:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input.sta-travellers-ages:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=month].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=time].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=week].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=email].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=url].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=tel].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=search].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=date].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=checkbox]:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=radio]:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=text].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=password].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=datetime].sta-date_pick:focus, .sta-searchWrapper_desktop .sta-qbtb_2 input[type=datetime-local].sta-date_pick:focus {
+    outline: #ffcc00 solid 1px !important;
+}
+
+.ui-widget-header {
+    background: #ffcc00;
+    border: none;
+}
+
+.ui-widget-content {
+    border: none !important;
+}
+
+.ui-datepicker-group-last {
+    border-left: 1px solid #ffcc00;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-submit button, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-submit input, .sta-searchWrapper_desktop .sta-qbtb_2 div.sta-noscript a, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-submit .sta-submit-button, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-submit button[type=submit] {
+    background: #2b2b2d url(/assets/images/btn-widget-bg.gif) no-repeat right center !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 15px 0px 15px 10px !important;
+    height: auto !important;
+    cursor: pointer !important;
+    margin-top: 5px !important;
+    font-weight: lighter !important;
+    font-family: Arial !important;
+    text-transform: none !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    min-height: 0 !important;
+
+    &:hover {
+        background: #2b2b2d url(/assets/images/btn-widget-bg.gif) no-repeat right center !important;
+    }
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-where.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-when.sta-contain, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-rooms.sta-contain.sta-keep_label {
+    width: 33.3333% !important;
+    padding: 0 20px !important;
+    border-right: 2px solid #fff;
+    min-height: 135px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-rooms.sta-contain.sta-keep_label {
+    margin-bottom: 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-where.sta-contain {
+    padding-left: 0 !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-rooms.sta-contain.sta-keep_label {
+    padding-right: 0 !important;
+    clear: none;
+    border-right: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-sw-date .sta-half {
+    float: none !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+
+    // &:nth-last-of-type(1) {
+    //     padding-left: 0 !important;
+    // }
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-submit.sta-contain {
+    float: right !important;
+    width: 33.3333% !important;
+    clear: right !important;
+    margin-top: 0 !important;
+    padding: 0 0 0 20px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-sw-date input {
+    margin-left: 0 !important;
+    margin-right: -35px !important;
+    padding: 4px $padding-base-horizontal !important;
+    border: none;
+    box-shadow: 0px 1px 1px #666 !important;
+    border-radius: 0 !important;
+    font-size: 14px !important;
+    height: 35px !important;
+    margin-bottom: 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-when.sta-contain p.sta-contain {
+    // margin-bottom: 10px !important;
+
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-contain.sta-isAirBnB {
+    width: 33.3333% !important;
+    top: 70px !important;
+    left: -10px !important;
+    padding: 0px 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-rooms.sta-contain.sta-keep_label .sta-num_rooms, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_hotels .sta-rooms.sta-contain.sta-keep_label>.sta-room.sta-contain {
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_insurance .sta-contain .sta-custom-select-current, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-contain .sta-custom-select-current {
+    display: none !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_insurance .sta-contain .sta-custom-select, .sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-contain .sta-custom-select {
+    margin-left: 0 !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-gap_tours > div:last-child {
+    padding-right: 0 !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-gap_destination {
+    width: 33.3333% !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-gap_tours {
+    width: 66.6666% !important;
+    margin-bottom: 20px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-qbtb_tours .sta-gap_tours>div {
+    padding: 0 20px !important;
+}
+
+.sta-searchWrapper_desktop .sta-qbtb_2 .sta-sw-landscape-row {
+    padding-right: 20px !important;
+    border-right: 2px solid #fff;
+
+    &:last-child {
+        border-right: none !important;
+    }
+}
+
+
+// WIdget Mobile
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-searchTabs {
+    margin-bottom: 10px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-searchTabs li:last-child {
+    display: none;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-searchTabs li {
+    .sta-searchTabs-icon {
+        display: none;
+    }
+
+    a {
+        height: auto !important;
+        padding: 5px 0 !important;
+        margin: 10px 0 !important;
+        background: none !important;
+        border-left: 2px solid #000;
+
+        &:focus {
+            border-left: 2px solid #000 !important;
+        }
+    }
+
+    &:first-child a {
+        border-left: 0 !important;
+    }
+
+    .sta-searchTabs-text {
+        font-family: 'aachen_boldregular', 'arial black', arial !important;
+        font-size: 22px !important;
+        color: black !important;
+        font-weight: normal !important;
+        text-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-standardSearch {
+    padding: 0 !important;
+    background: none !important;
+    position: relative;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-where .sta-where-item {
+    height: auto !important;
+    border-left: 1px solid #40b4e1 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-when .sta-when-item {
+    height: auto !important;
+    border-left: 1px solid #40b4e1 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-where .sta-where-label-wrap, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-when .sta-when-label-wrap, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-numbers .sta-numbers-label-wrap, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-when .sta-when-item.chosen .sta-when-label-val-text {
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-when .sta-when-label-icon {
+    display: none !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-numbers .sta-numbers-item:last-child {
+    display: none !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-numbers .sta-numbers-item {
+    height: auto !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-advSearch {
+    display: none !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-details .sta-sw-flights-type-item.sta-active {
+    background-color: #ffcc00 !important;
+    color: black !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-details .sta-sw-flights-type, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-details .sta-sw-flights-type-item {
+    border-color: #ffcc00 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-key, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-val {
+    height: auto !important;
+    padding: 0 0 0 10px !important;
+    font-size: 16px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-more {
+    margin-left: 0 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-less, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-more {
+    background: #ffcc00 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-less.disabled, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-rooms .sta-num_rooms-more.disabled {
+    background: #E3E1E0 !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-sw-tours-where input[type=text], .sta-searchWrapper_mobile .sta-qbtb_2 .sta-custom-select select {
+    height: auto !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
+    padding: 9px 60px 9px 10px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-custom-select:after {
+    content: "\e134" !important;
+    border-left: none !important;
+    font-family: 'Glyphicons Halflings';
+    color: #b5b5b5;
+    background: none !important;
+    font-size: 18px;
+    top: 9px !important;
+    width: 30px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-popup-sw-m .sta-popup-sw-m-header {
+    background: #40b4e1 !important;
+    min-height: 0 !important;
+    padding: 13px 50px 15px 10px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-popup-sw-m .sta-popup-sw-m-header-text {
+    color: #fff !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 18px !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-popup-sw-m .sta-popup-sw-m-header-close {
+    right: 20px !important;
+    color: #fff !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-popup-sw-m .sta-where-popup-wrap {
+    margin-top: 0 !important;
+    background: #ffcc00 !important;
+}
+
+.sta-searchWrapper_mobile .ui-tabs li.ui-state-default.ui-state-active>a {
+    background: #ffcc00 !important;
+    border-bottom: none !important;
+    color: black !important;
+}
+
+.sta-searchWrapper_mobile .ui-tabs li.ui-state-default>a {
+    background: #E3E1E0 !important;
+    border-bottom: none !important;
+    color: black !important;
+}
+
+.sta-searchWrapper_mobile .sta-qbtb_2 .sta-popup-sw-m .sta-where-popup-tabs-input {
+    height: auto !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 16px !important;
+    padding: 9px 60px 9px 10px !important;
+    height: auto;
+}
+
+ .sta-searchWrapper_mobile .sta-qbtb_2 .sta-clear-text {
+     padding: 0 !important;
+     top: -10px !important;
+     right: 20px !important;
+ }
+
+ .sta-searchWrapper_mobile .sta-qbtb_2 .sta-popup-sw-m .sta-when-popup-wrap {
+     margin-top: 0 !important;
+ }
+
+ .sta-searchWrapper_mobile .ui-tabs .ui-tabs-nav {
+     margin-bottom: 20px !important;
+ }
+
+ .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header {
+     background: #ffcc00 !important;
+ }
+
+ .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header .ui-datepicker-next .ui-icon-circle-triangle-e, .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header .ui-datepicker-prev .ui-icon-circle-triangle-e, .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header .ui-datepicker-next .ui-icon-circle-triangle-w {
+     border-color: transparent transparent transparent black !important;
+ }
+
+  .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header .ui-datepicker-prev .ui-icon-circle-triangle-w {
+      border-color: transparent black transparent transparent !important;
+  }
+
+ .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header .ui-datepicker-next, .sta-searchWrapper_mobile .ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
+     border-color: black !important;
+ }
+
+ .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+     color: black !important;
+ }
+
+ .sta-searchWrapper_mobile .sta-qbtb_2 .sta-end a, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-end span, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-start a, .sta-searchWrapper_mobile .sta-qbtb_2 .sta-start span {
+    background: #ffcc00 !important;
+    color: black !important;
+ }
+
+ .sta-searchWrapper_mobile .sta-qbtb_2 .sta-middle {
+     background: #fff5cb !important;
+ }

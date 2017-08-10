@@ -1,0 +1,249 @@
+<div ng-if="Auth.isAdmin()" class="admin-bar" ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="competition-body" ng-init="init()">
+
+    <section class="theme1504 competition-wrapper">
+        <header id="header">
+            <img src="/assets/images/header.jpg" alt="" height="305">
+            <div class="desktop-view">
+                <img src="/assets/images/header-desktop.jpg" alt="" class="desktop-view-image" height="303">
+            </div>
+
+            <section class="header-intro">
+                <div class="desktop-view">
+                    <h1>Welcome to CommBank Holidays, we're delighted you have stopped by!</h1>
+                    <p>Whether you are looking for a romantic getaway, family fun, VIP indulgence, adventuring far and wide... no matter what it is, our professional team is here to provide expert advice, personal recommendations and of course the best deal!</p>
+                    <h3>You will also go in the draw for your chance to WIN a luxury Holiday Escape!</h3>
+                </div>
+            </section>
+        </header>
+        <section class="form">
+            <div class="desktop-view">
+                <h2>Register your details</h2>
+                <form name="submissionForm" ng-submit="createSubmission(submissionForm)" novalidate>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group">
+                                <input type="text" ng-model="submission.title" name="title" placeholder="title" required>
+                                <div ng-show="submissionForm.$submitted || submissionForm.title.$touched" class="errorIcons">
+                                    <div ng-show="submissionForm.title.$error.required"><span class="fa fa-exclamation-circle"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <div class="form-group">
+                                <input type="text" ng-model="submission.firstName" placeholder="first name" name="firstName" required>
+                                <div ng-show="submissionForm.$submitted || submissionForm.firstName.$touched" class="errorIcons">
+                                    <div ng-show="submissionForm.firstName.$error.required"><span class="fa fa-exclamation-circle"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="submission.surname" placeholder="surname" name="surname" required>
+                                <div ng-show="submissionForm.$submitted || submissionForm.surname.$touched" class="errorIcons">
+                                    <div ng-show="submissionForm.surname.$error.required"><span class="fa fa-exclamation-circle"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <input type="email" ng-model="submission.email" placeholder="email" name="email" ng-pattern="/^[a-z]+[a-z0-9._'-]+@[a-z]+\.[a-z.]{2,8}$/" required>
+                                <div ng-show="submissionForm.$submitted || submissionForm.email.$touched" class="errorIcons">
+                                    <div ng-show="submissionForm.email.$error.required"><span class="fa fa-exclamation-circle"></span></div>
+                                    <div ng-show="submissionForm.email.$error.pattern"><span class="fa fa-exclamation-circle"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <input type="tel" ng-model="submission.phone" placeholder="phone" name="phone" ng-pattern="/^[0-9]{1,11}$/" required>
+                                <div ng-show="submissionForm.phone.$dirty || submissionForm.$submitted" class="errorIcons">
+                                    <div ng-show="submissionForm.phone.$error.required"><span class="fa fa-exclamation-circle"></span></div>
+                                    <div ng-show="submissionForm.phone.$error.pattern"><span class="fa fa-exclamation-circle"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="submission.cbaBusinessUnit" name="cbaBusinessUnit" required>
+                                    <option value="">CBA Business Unit</option>
+                                    <option value="Business and Private Banking">Business and Private Banking</option>
+                                    <option value="Enterprise Services">Enterprise Services</option>
+                                    <option value="Financial Services">Financial Services</option>
+                                    <option value="Group Corporate Affairs">Group Corporate Affairs</option>
+                                    <option value="Human Resources">Human Resources</option>
+                                    <option value="Institutional Banking and Markets">Institutional Banking and Markets</option>
+                                    <option value="International Financial Services">International Financial Services</option>
+                                    <option value="Retail Banking Services">Retail Banking Services</option>
+                                    <option value="Risk Management">Risk Management</option>
+                                    <option value="Wealth Management">Wealth Management</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div ng-show="submissionForm.$submitted || submissionForm.cbaBusinessUnit.$touched" class="errorIcons">
+                                    <div ng-show="submissionForm.cbaBusinessUnit.$error.required"><span class="fa fa-exclamation-circle"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h4>Airline Membership</h4>
+                    <div class="row checkboxes">
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.virginAirlines" id="virginAirlines" name="virginAirlines" ></checkbox><label for="virginAirlines">Virgin</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.qantasAirlines" id="qantasAirlines" name="qantasAirlines"></checkbox><label for="qantasAirlines">Qantas</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Holiday Type -->
+                    <h4>Preferred Holiday Type</h4>
+                    <div class="row checkboxes">
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.beachHoliday" id="beachHoliday" name="beachHoliday"></checkbox><label for="beachHoliday">Beach</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.skiHoliday" id="skiHoliday" name="skiHoliday"></checkbox><label for="skiHoliday">Ski</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.familyHoliday" id="familyHoliday" name="familyHoliday"></checkbox><label for="familyHoliday">Family</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.cruiseHoliday" id="cruiseHoliday" name="cruiseHoliday"></checkbox><label for="cruiseHoliday">Cruise</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.adventureHoliday" id="adventureHoliday" name="adventureHoliday"></checkbox><label for="adventureHoliday">Adventure</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.tourHoliday" id="tourHoliday" name="tourHoliday"></checkbox><label for="tourHoliday">Tour Group</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.luxuryHoliday" id="luxuryHoliday" name="luxuryHoliday"></checkbox><label for="luxuryHoliday">Luxury</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preferred Destination -->
+                    <h4>Preferred Holiday Destination</h4>
+                    <div class="row checkboxes">
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.australiaDestination" id="australiaDestination" name="australiaDestination"></checkbox><label for="australiaDestination">Australia</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.newZealandDestination" id="newZealandDestination" name="newZealandDestination"></checkbox><label for="newZealandDestination">New Zealand</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.southPacificIslandsDestination" id="southPacificIslandsDestination" name="southPacificIslandsDestination"></checkbox><label for="southPacificIslandsDestination">South Pacific Islands</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.asiaDestination" id="asiaDestination" name="asiaDestination"></checkbox><label for="asiaDestination">Asia</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.europeDestination" id="europeDestination" name="europeDestination"></checkbox><label for="europeDestination">Europe</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.africaDestination" id="africaDestination" name="africaDestination"></checkbox><label for="africaDestination">Africa</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.northAmericaDestination" id="northAmericaDestination" name="northAmericaDestination"></checkbox><label for="northAmericaDestination">North America</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3">
+                            <div class="form-group checkbox">
+                                <checkbox ng-model="submission.southAmericaDestination" id="southAmericaDestination" name="southAmericaDestination"></checkbox><label for="southAmericaDestination">South America</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="form-group">
+                                <input type="text" ng-model="submission.otherDesintation" autocomplete="off" placeholder="specify">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acceptance -->
+
+                    <div class="row acceptance">
+                        <div class="col-xs-12 show-on-mobile">
+                            <div class="form-group checkbox" ng-class="{ 'error': submissionForm.acceptance.$error.required && submissionForm.$submitted }">
+                                <input type="checkbox" ng-model="submission.acceptance" name="acceptance" class="hide" required>
+                                <checkbox ng-model="submission.acceptance" id="acceptance"></checkbox><label for="acceptance" style="padding-top: 8px;">I accept the terms &amp; conditions and prize entry requirements and wish to be subscribed to the email newsletter to receive the latest travel deals.</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2">
+                            <button type="submit" class="submit">Submit</button>
+                        </div>
+                        <div class="col-sm-10 hide-on-mobile">
+                            <div class="form-group checkbox" ng-class="{ 'error': submissionForm.acceptance.$error.required && submissionForm.$submitted }">
+                                <input type="checkbox" ng-model="submission.acceptance" name="acceptance" class="hide" required>
+                                <checkbox ng-model="submission.acceptance" id="acceptance"></checkbox><label for="acceptance" style="padding-top: 8px;">I accept the terms &amp; conditions and prize entry requirements and wish to be subscribed to the email newsletter to receive the latest travel deals.</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Widget Area -->
+        <section class="widget">
+            <div class="desktop-view">
+                <div id="qbtb_2_0_id_0" class="uk_v1_0"></div>
+            </div>
+        </section>
+
+        <!-- Widget Area -->
+        <section class="banners">
+            <div class="desktop-view">
+                <h2>These deals brought to you by:</h2>
+                <div class="ie-fixMinHeight">
+                    <div class="flex">
+                        <div class="flex-item">
+                            <img ng-src="{{banner.imageurl}}" alt="">
+                        </div>
+                        <div class="flex-item">
+                            <a ng-href="{{banner.linkurl}}" target="_blank"><img src="/assets/images/deal-of-the-week.jpg" alt="Hot Deals Of The Week"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>

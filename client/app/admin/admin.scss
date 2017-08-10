@@ -1,0 +1,39 @@
+.trash { color:rgb(209, 91, 71); }
+
+.submission-table {
+	max-height: calc(100% - 140px);
+	overflow: scroll;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+
+	> table {
+		margin-bottom: -1px;
+	}
+
+	tr > .download-column {
+		text-align: center;
+	}	
+
+	tr > .checkbox-column {
+		text-align: center;
+	}
+
+	tr > td {
+		vertical-align: middle !important;
+	}
+}
+
+.download-group {
+	float: right;
+	border-left: 1px solid $gray-lighter;
+	padding-left: 30px;
+}
+
+.submission-table-empty {
+	padding: $padding-base-vertical * 3 $padding-base-horizontal;
+	text-align: center;
+}
+
+.hide-delete {
+	display: none;
+}

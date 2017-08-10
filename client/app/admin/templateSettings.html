@@ -1,0 +1,36 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container" ng-init="init()">
+
+	<h3>Template Settings</h3>
+	<form ng-submit="saveForm()">
+		<div class="row">
+			<div class="col-sm-12">
+				<h4>Banners</h4>
+			</div>
+			<div class="col-sm-6" ng-show="isThink()">
+				<div class="form-group">
+					<label for="bannerImageUrl">Sponsor Logo URL</label>
+				    <input type="text" class="form-control" ng-model="settings.bannerImageURL" id="bannerImageURL" placeholder="Your sponsor image URL" tooltip="e.g. http://www.google.com/images/banner.jpg"  tooltip-trigger="focus">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label for="bannerImageUrl">Hot Deals of the Week URL</label>
+					<input type="text" class="form-control" ng-model="settings.bannerLinkURL" id="bannerLinkURL" placeholder="Hot Deals of the Week URL" tooltip="http://www.google.com"  tooltip-trigger="focus">
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<button class="btn btn-success" type="submit">Submit</button>
+			</div>
+		</div>
+	</form>
+
+
+<!-- 	<form ng-submit="createSubmission()">
+		<input type="text" ng-model="createForm.firstName" placeholder="First Name">
+		<input type="text" ng-model="createForm.lastName" placeholder="Last Name">
+
+		<button class="btn btn-success" type="submit">Submit</button>
+	</form> -->
+</div>

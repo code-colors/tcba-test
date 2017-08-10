@@ -1,0 +1,65 @@
+body, html {
+    height: 100%;
+
+    > div {
+        height: inherit;
+    }
+}
+
+.container {
+    height: inherit;
+}
+
+.competition-wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.admin-bar {
+    .navbar-static-top {
+        @extend .navbar-fixed-top;
+        margin-bottom: 0;
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+form {
+
+    .form-group {
+        position: relative;
+    }
+
+    input:not([type=checkbox]), input:not([type=radio]) {
+        width: 100%;
+    }
+
+    input[type=date], input[type=tel], input[type=email] {
+        @extend input;
+    }
+
+    .errorIcons {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        color: $brand-danger;
+        font-size: 16px;
+        margin-top: -1px;
+        transform: translate(0, -50%);
+    }
+
+    .checkbox.error {
+        .btn:after {
+            content: "\f06a";
+            font-family: 'FontAwesome';
+            position: absolute;
+            top: -2px;
+            left: 4px;
+            font-size: 16px;
+            color: $brand-danger;
+        }
+    }
+}
